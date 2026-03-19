@@ -6,13 +6,32 @@ app = Flask(__name__)
 # This is the HTML for our simple web page
 HTML_FORM = """
 <html>
+    <head>
+        <title>Catpedia</title>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; padding-top: 50px; }
+            .card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 500px; text-align: center; }
+            img { width: 100%; border-radius: 10px; margin: 15px 0; }
+            h1 { color: #2c3e50; margin-bottom: 5px; }
+            p { color: #7f8c8d; margin-bottom: 20px; }
+            input[type="text"] { width: 80%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; margin-bottom: 10px; }
+            input[type="submit"] { background-color: #ff6b6b; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+            input[type="submit"]:hover { background-color: #ee5253; }
+        </style>
+    </head>
     <body>
-        <h2>Welcome to the Data Collector!</h2>
-        <form method="POST" action="/submit">
-            <label>Enter a value:</label>
-            <input type="text" name="user_value" required>
-            <input type="submit" value="Save to Cloud SQL">
-        </form>
+        <div class="card">
+            <h1>Catpedia</h1>
+            <p>Ask any question about cats!</p>
+            
+            <img src="https://i.ytimg.com/vi/SQJrYw1QvSQ/maxresdefault.jpg" alt="Cute Cat">
+
+            <form method="POST" action="/submit">
+                <input type="text" name="user_value" placeholder="Type your question here..." required>
+                <br>
+                <input type="submit" value="Meow-it!">
+            </form>
+        </div>
     </body>
 </html>
 """
@@ -29,9 +48,9 @@ def submit():
 
     # --- DATABASE CONNECTION SETTINGS ---
     # We will replace these placeholder words in the next step!
-    DB_HOST = "YOUR_DATABASE_IP" 
+    DB_HOST = "34.28.139.87" 
     DB_USER = "postgres"
-    DB_PASS = "YOUR_DATABASE_PASSWORD"
+    DB_PASS = "RAQuanni2015."
     DB_NAME = "postgres"
 
     try:
